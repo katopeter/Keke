@@ -1,0 +1,20 @@
+const saveForm = document.getElementById('save-form');
+const saveBtn = document.getElementById('save-btn');
+const loadBtn = document.getElementById('load-btn');
+const loadedData = document.getElementById('loaded-data');
+
+saveBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const data = document.getElementById('data').value;
+    localStorage.setItem('davun-data', data);
+    alert('Data saved successfully!');
+});
+
+loadBtn.addEventListener('click', () => {
+    const data = localStorage.getItem('davun-data');
+    if (data) {
+        loadedData.innerText = data;
+    } else {
+        alert('No data found!');
+    }
+});
